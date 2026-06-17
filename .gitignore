@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets & local config
+.env
+.env.local
+*.secret
+credentials.json
+config.local.json
+
+# Power BI
+*.pbix
+*.pbit
+*.pbids
+
+# Large binary files
+*.zip
+*.tar.gz
+*.7z
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+
+# Temp / output
+tmp/
+temp/
+output/
+*.bak

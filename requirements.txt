@@ -1,0 +1,26 @@
+# Python dependencies for the Power BI AI-Readiness pipeline
+
+# LLM clients (pick one or both)
+openai>=1.30.0
+anthropic>=0.25.0
+
+# Environment & config
+python-dotenv>=1.0.0
+
+# TMDL / Power BI metadata
+lxml>=5.0.0
+
+# Data manipulation
+pandas>=2.0.0
+
+# Power BI REST API
+requests>=2.31.0
+msal>=1.28.0
+
+# Notebook (for AI Readiness Score)
+jupyter>=1.0.0
+ipykernel>=6.29.0
+
+# Visualization (for score report)
+matplotlib>=3.8.0
+plotly>=5.20.0

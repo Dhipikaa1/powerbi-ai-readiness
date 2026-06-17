@@ -1,0 +1,83 @@
+[
+  {
+    "ID": "AI_READY_MEASURE_HAS_DESCRIPTION",
+    "Name": "Measures must have descriptions (>= 15 chars)",
+    "Category": "AI Readiness",
+    "Description": "Every measure must have a human-readable description so Copilot, Q&A, and Data Agents can reason about it.",
+    "Severity": 2,
+    "Scope": "Measure",
+    "Expression": "string.IsNullOrWhiteSpace(Description) or Description.Length < 15",
+    "CompatibilityLevel": 1400,
+    "FixExpression": null
+  },
+  {
+    "ID": "AI_READY_MEASURE_HAS_SYNONYM",
+    "Name": "Measures must have at least 1 synonym",
+    "Category": "AI Readiness",
+    "Description": "Q&A and Copilot use synonyms to match natural-language phrases.",
+    "Severity": 2,
+    "Scope": "Measure",
+    "Expression": "Synonyms.Count == 0",
+    "CompatibilityLevel": 1400
+  },
+  {
+    "ID": "AI_READY_MEASURE_IN_DISPLAY_FOLDER",
+    "Name": "Measures must be in a Display Folder",
+    "Category": "AI Readiness",
+    "Description": "Display folders help end-users and Copilot navigate the model.",
+    "Severity": 1,
+    "Scope": "Measure",
+    "Expression": "string.IsNullOrWhiteSpace(DisplayFolder)",
+    "CompatibilityLevel": 1400
+  },
+  {
+    "ID": "AI_READY_MEASURE_HAS_FORMAT_STRING",
+    "Name": "Numeric measures must have a Format String",
+    "Category": "AI Readiness",
+    "Description": "Without a format string, AI-generated answers show raw decimals.",
+    "Severity": 1,
+    "Scope": "Measure",
+    "Expression": "string.IsNullOrWhiteSpace(FormatString) and (DataType == DataType.Decimal or DataType == DataType.Int64 or DataType == DataType.Double)",
+    "CompatibilityLevel": 1400
+  },
+  {
+    "ID": "AI_READY_MEASURE_NAME_NOT_TECHNICAL",
+    "Name": "Measure names should not contain 'tmp', 'test', 'old', '_'",
+    "Category": "AI Readiness",
+    "Description": "Technical/debug names confuse end-users and AI assistants.",
+    "Severity": 2,
+    "Scope": "Measure",
+    "Expression": "Name.ToLower().Contains(\"tmp\") or Name.ToLower().Contains(\"test\") or Name.ToLower().Contains(\"old\") or Name.StartsWith(\"_\")",
+    "CompatibilityLevel": 1400
+  },
+  {
+    "ID": "AI_READY_COLUMN_HAS_DESCRIPTION",
+    "Name": "Visible columns must have descriptions",
+    "Category": "AI Readiness",
+    "Description": "Visible columns are user-facing and need descriptions for AI.",
+    "Severity": 2,
+    "Scope": "DataColumn",
+    "Expression": "not IsHidden and string.IsNullOrWhiteSpace(Description)",
+    "CompatibilityLevel": 1400
+  },
+  {
+    "ID": "AI_READY_TABLE_HAS_DESCRIPTION",
+    "Name": "Visible tables must have descriptions",
+    "Category": "AI Readiness",
+    "Description": "Tables represent business concepts; AI needs descriptions to disambiguate.",
+    "Severity": 2,
+    "Scope": "Table",
+    "Expression": "not IsHidden and string.IsNullOrWhiteSpace(Description)",
+    "CompatibilityLevel": 1400
+  },
+  {
+    "ID": "AI_READY_RELATIONSHIP_HAS_DESCRIPTION",
+    "Name": "Relationships should have descriptions",
+    "Category": "AI Readiness",
+    "Description": "Helps AI understand business semantics of joins.",
+    "Severity": 1,
+    "Scope": "Relationship",
+    "Expression": "string.IsNullOrWhiteSpace(Description)",
+    "CompatibilityLevel": 1400
+  }
+]
